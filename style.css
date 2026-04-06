@@ -1,0 +1,99 @@
+h1 {
+  background-color: green;
+}
+
+div {
+  background-color: rgb(247, 8, 247);
+}
+
+p {
+  background-color: rgb(243, 243, 21);
+}
+
+h3 {
+  background-color: rgb(215, 230, 9);
+}
+
+h4 {
+  background-color: rgb(236, 231, 227);
+}
+
+h2 {
+  color: rgb(214, 107, 19);
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Style the topnav */
+ul.topnav {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333333;
+}
+
+/* Style links in topnav */
+ul.topnav li a {
+  display: block;
+  color: #f1f1f1;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+ul.topnav li a:hover {
+  background-color: #dddddd;
+  color: black;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>My Header</h1>
+</header>
+
+<ul class="topnav">
+  <li><a href="#"">Home</a></li>
+  <li><a href="#">News</a></li>
+  <li><a href="#">Contact</a></li>
+  <li><a href="#">About</a></li>
+</ul>
+
+a {
+ background-color: #4caf50;
+ color: white;
+ padding: 10px; 20px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ border-radius: 5px;
+ transition-background-color 0.3s;
+
+}
+
+a:hover {
+
+  background-color: #3e8e41;
+}
+
+
+
+
+
+
