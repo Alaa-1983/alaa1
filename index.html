@@ -14,10 +14,7 @@
     </style>
 </head>
 <body>
-    <div id="maintenance">
-        <h1>تم إغلاق الموقع لمدة 48 ساعة لأجل الصيانة</h1>
-        <p id="timer"></p>
-    </div>
+   
     <div id="main-content" style="display: none;">
         <header>
             <h1>موقع أ.علاءالدين جلال التعليمي</h1>
@@ -29,42 +26,5 @@
         <img width="100%" height="auto" src="photo/1.gif">
     </div>
 
-    <script>
-        var countDownDate = localStorage.getItem('countDownDate');
-
-        if (!countDownDate) {
-            countDownDate = new Date(new Date().getTime() + 48 * 60 * 60 * 1000);
-            localStorage.setItem('countDownDate', countDownDate);
-        } else {
-            countDownDate = new Date(countDownDate);
-        }
-
-        var now = new Date().getTime();
-        var distance = countDownDate - now;
-
-        if (distance > 0) {
-            var x = setInterval(function() {
-                now = new Date().getTime();
-                distance = countDownDate - now;
-
-                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById("timer").innerHTML = hours + " ساعة " + minutes + " دقيقة " + seconds + " ثانية ";
-
-                if (distance < 0) {
-                    clearInterval(x);
-                    localStorage.removeItem('countDownDate');
-                    document.getElementById("maintenance").style.display = "none";
-                    document.getElementById("main-content").style.display = "block";
-                }
-            }, 1000);
-        } else {
-            localStorage.removeItem('countDownDate');
-            document.getElementById("maintenance").style.display = "none";
-            document.getElementById("main-content").style.display = "block";
-        }
-    </script>
-</body>
+ </body>
 </html>
