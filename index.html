@@ -1,6 +1,54 @@
 <!DOCTYPE html>
 <html dir="rtl" lang="en">
 <head>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>مغلق للصيانة</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>تم إغلاق الموقع لمدة 48 ساعة لأجل الصيانة</h1>
+    <p id="timer"></p>
+
+    <script>
+        // تحديد تاريخ انتهاء الإغلاق (48 ساعة من الآن)
+        var countDownDate = new Date(new Date().getTime() + 48 * 60 * 60 * 1000);
+
+        // تحديث المؤقت كل ثانية
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            // حساب الوقت المتبقي
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // عرض الوقت المتبقي
+            document.getElementById("timer").innerHTML = hours + " ساعة " + minutes + " دقيقة " + seconds + " ثانية ";
+
+            // إذا انتهى الوقت، إعادة تحميل الصفحة
+            if (distance < 0) {
+                clearInterval(x);
+                window.location.reload();
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
+
+
+
+
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
