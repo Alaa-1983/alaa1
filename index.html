@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html dir="rtl" lang="en">
 <head>
-    <title>مغلق للصيانة</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع أ.علاءالدين جلال التعليمي</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,15 +14,25 @@
     </style>
 </head>
 <body>
-    <h1>تم إغلاق الموقع لمدة 48 ساعة لأجل الصيانة</h1>
-    <p id="timer"></p>
+    <div id="maintenance">
+        <h1>تم إغلاق الموقع لمدة 48 ساعة لأجل الصيانة</h1>
+        <p id="timer"></p>
+    </div>
+    <div id="main-content" style="display: none;">
+        <header>
+            <h1>موقع أ.علاءالدين جلال التعليمي</h1>
+        </header>
+        <ul width="100" height="auto" class="topnav">
+            <li><a href="home2.html">الدروس الصوتية</a></li>
+            <li><a href="ferr2.html">الدروس المرئية</a></li>
+        </ul>
+        <img width="100%" height="auto" src="photo/1.gif">
+    </div>
 
     <script>
-        // دليل على إننا بنستخدم localStorage
         var countDownDate = localStorage.getItem('countDownDate');
 
         if (!countDownDate) {
-            // لو مافيش تاريخ مخزن، نحفظ تاريخ انتهاء الإغلاق (48 ساعة من الآن)
             countDownDate = new Date(new Date().getTime() + 48 * 60 * 60 * 1000);
             localStorage.setItem('countDownDate', countDownDate);
         } else {
@@ -30,7 +43,6 @@
         var distance = countDownDate - now;
 
         if (distance > 0) {
-            // لو المدة ما خلصتش، اظهر المؤقت
             var x = setInterval(function() {
                 now = new Date().getTime();
                 distance = countDownDate - now;
@@ -44,13 +56,14 @@
                 if (distance < 0) {
                     clearInterval(x);
                     localStorage.removeItem('countDownDate');
-                    window.location.reload();
+                    document.getElementById("maintenance").style.display = "none";
+                    document.getElementById("main-content").style.display = "block";
                 }
             }, 1000);
         } else {
-            // لو المدة خلصت، احذف التاريخ المخزن وأظهر المحتوى الرئيسي
             localStorage.removeItem('countDownDate');
-            document.body.innerHTML = '<h1>مرحباً بك في موقعنا!</h1>'; // غير المحتوى ده للمحتوى الرئيسي
+            document.getElementById("maintenance").style.display = "none";
+            document.getElementById("main-content").style.display = "block";
         }
     </script>
 </body>
