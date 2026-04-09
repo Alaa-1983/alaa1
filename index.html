@@ -2,8 +2,18 @@
 <html dir="rtl" lang="en">
 <head>
 
+
+
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مرحبا</title>
+    <link rel="stylesheet" href="style.css">
+
+
 <!DOCTYPE html>
-<html>
+<html dir="rtl" lang="en">
 <head>
     <title>مغلق للصيانة</title>
     <style>
@@ -19,41 +29,49 @@
     <p id="timer"></p>
 
     <script>
-        // تحديد تاريخ انتهاء الإغلاق (48 ساعة من الآن)
-        var countDownDate = new Date(new Date().getTime() + 48 * 60 * 60 * 1000);
+        // دليل على إننا بنستخدم localStorage
+        var countDownDate = localStorage.getItem('countDownDate');
 
-        // تحديث المؤقت كل ثانية
-        var x = setInterval(function() {
-            var now = new Date().getTime();
-            var distance = countDownDate - now;
+        if (!countDownDate) {
+            // لو مافيش تاريخ مخزن، نحفظ تاريخ انتهاء الإغلاق (48 ساعة من الآن)
+            countDownDate = new Date(new Date().getTime() + 48 * 60 * 60 * 1000);
+            localStorage.setItem('countDownDate', countDownDate);
+        } else {
+            countDownDate = new Date(countDownDate);
+        }
 
-            // حساب الوقت المتبقي
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
 
-            // عرض الوقت المتبقي
-            document.getElementById("timer").innerHTML = hours + " ساعة " + minutes + " دقيقة " + seconds + " ثانية ";
+        if (distance > 0) {
+            // لو المدة ما خلصتش، اظهر المؤقت
+            var x = setInterval(function() {
+                now = new Date().getTime();
+                distance = countDownDate - now;
 
-            // إذا انتهى الوقت، إعادة تحميل الصفحة
-            if (distance < 0) {
-                clearInterval(x);
-                window.location.reload();
-            }
-        }, 1000);
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("timer").innerHTML = hours + " ساعة " + minutes + " دقيقة " + seconds + " ثانية ";
+
+                if (distance < 0) {
+                    clearInterval(x);
+                    localStorage.removeItem('countDownDate');
+                    window.location.reload();
+                }
+            }, 1000);
+        } else {
+            // لو المدة خلصت، احذف التاريخ المخزن وأظهر المحتوى الرئيسي
+            localStorage.removeItem('countDownDate');
+            document.body.innerHTML = '<h1>مرحباً بك في موقعنا!</h1>'; // غير المحتوى ده للمحتوى الرئيسي
+        }
     </script>
 </body>
 </html>
 
 
-
-
     
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مرحبا</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body style="background-color: blue;">
 
