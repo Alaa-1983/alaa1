@@ -93,104 +93,18 @@ a:hover {
 }
 
 
-@media screen (max-width:1023px) {
-
-  h1 {
-  background-color: green;
+@media screen and (max-width:812px) {
+  .container{ padding-right:90px; padding-left:90px;}
 }
-
-div {
-  background-color: rgb(247, 8, 247);
+@media screen and (max-width:750px) {
+  .container{ padding-right:75px; padding-left:75px;}
 }
-
-p {
-  background-color: rgb(243, 243, 21);
+@media screen and (max-width:700px) {
+  .container{ padding-right:60px; padding-left:60px;}
 }
-
-h3 {
-  background-color: rgb(215, 230, 9);
+@media screen and (max-width:650px) {
+  .container{ padding-right:45px; padding-left:45px;}
 }
-
-h4 {
-  background-color: rgb(236, 231, 227);
+@media screen and (max-width:600px) {
+  .container{ padding-right:30px; padding-left:30px;}
 }
-
-h2 {
-  color: rgb(214, 107, 19);
-}
-
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-header {
-  background-color: #ff0101;
-  padding: 10px;
-  text-align: center;
-}
-
-/* Style the topnav */
-ul.topnav {
-  display: table-column;
-  list-style-type: none;
-  margin: 0;
-  padding: 3;
-  background-color: #b1f005;
-}
-
-/* Style links in topnav */
-ul.topnav li a {
-  display: table-column;
-  color: #fdfdfd;
-  padding: 14px 16px;
-  text-decoration:none;
-}
-
-/* Change color on hover */
-ul.topnav li a:hover {
-  background-color: #dddddd;
-  color: black;
-}
-</style>
-</head>
-<body>
-
-<header>
-  <h1>My Header</h1>
-</header>
-
-<ul class="topnav">
-  <li><a href="#"">Home</a></li>
-  <li><a href="#">News</a></li>
-  <li><a href="#">Contact</a></li>
-  <li><a href="#">About</a></li>
-</ul>
-
-a {
- background-color: #4caf50;
- color: white;
- padding: 10px; 20px;
- text-align: center;
- text-decoration: none;
- display: inline-block;
- border-radius: 5px;
- transition-background-color 0.3s;
-
-}
-
-a:hover {
-
-  background-color: #3e8e41;
-}
-}
-
-
-
-
-
